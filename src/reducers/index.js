@@ -427,7 +427,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
               keyobj[key] = keyobj[key] ? keyobj[key] + 1 : 1;
               }
               songkey = (Object.keys(keyobj).reduce((a, b) => { return keyobj[a] > keyobj[b] ? a : b }))
-              // return songkey
+              
             }
         }
       } 

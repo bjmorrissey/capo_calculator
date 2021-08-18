@@ -5,7 +5,6 @@ const ChordGraph = (props) => {
   if (!props) {
     return <div>Type in a chord</div>
   }
-  console.log(props)
   
   //neck size controlled by vPHeight. Only edit that!
   const vpHeight = 200
@@ -93,7 +92,7 @@ const ChordGraph = (props) => {
     let strumObj = Object.assign({}, props.strum)
       
     for (let i = 0; i<props.strum.length; i++){
-      if (strumObj[i] != 'X' && strumObj[i]) {
+      if (strumObj[i] !== 'X' && strumObj[i]) {
         delete strumObj[i]
       }
     }
@@ -116,7 +115,7 @@ const ChordGraph = (props) => {
     let strumObj = Object.assign({}, props.strum)
       
     for (let i = 0; i<props.strum.length; i++){
-      if (strumObj[i] == 'X' && strumObj[i]) {
+      if (strumObj[i] === 'X' && strumObj[i]) {
         delete strumObj[i]
       }
     }
@@ -127,9 +126,7 @@ const ChordGraph = (props) => {
     
   }
     
-  
-  
-
+ 
  return(
   //  <div className="chordgraph">
     

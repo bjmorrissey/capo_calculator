@@ -1,0 +1,123 @@
+.chordcoversion {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h1 {
+    font-size: 50px;
+    color: $header-color;
+    margin: 15px 0 50px 0;
+    text-align: center;
+  }
+
+  & .intro {
+    // margin: 50px;
+    width: 70vw;
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+      text-align: center;
+      margin: 20px;
+    }
+
+    & a {
+      color: $header-color;
+    }
+  }
+
+  & .chordinput {
+    width: 80vw;
+    text-align: center;
+  }
+
+  & .chordinput input {
+    font-size: 1.25rem;
+    padding: 5px;
+    margin: 20px 20px 40px 0;
+  }
+
+  & .chordConvert {
+    font-size: 1.25rem;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $header-color;
+    }
+  }
+
+  .chordexp {
+    margin-bottom: 35px;
+
+    & .capoChart {
+      margin: 0 auto;
+      width: 50vw;
+      height: 100%;
+      background-color: rgb(165, 196, 231);
+      padding-bottom: 5px;
+
+      & .charttitle {
+        font-size: 2.25rem;
+        padding: 15px;
+        border-bottom: 1px solid #333;
+      }
+
+      & .capotitle {
+        display: flex;
+        font-size: 1.5rem;
+        color: #333;
+        border-bottom: solid 1px #333;
+        justify-content: space-between;
+        background-color: #ccc;
+        padding: 5px;
+      }
+
+      & .capoSelection {
+        display: flex;
+        justify-content: space-around;
+        font-size: 1.75rem;
+        margin: 15px 0;
+
+        & .fretnumber {
+          width: 35%;
+          padding: 2px;
+        }
+
+        & .chordchart {
+          width: 50%;
+          display: flex;
+          justify-content: space-between;
+
+          & .chord {
+            padding: 2px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+
+            &:hover {
+              color: $background-color;
+            }
+          }
+        }
+      }
+
+      & .chordtitle {
+        width: 65%;
+      }
+
+      & .capospot {
+        width: 35%;
+      }
+    }
+  }
+
+  .chordchart {
+    visibility: visible;
+  }
+}

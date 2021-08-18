@@ -3,14 +3,17 @@ import React from 'react';
 const Navbar = () => {
   return (
     <div class="header">
-      <div class="main">
-        <div class='logo'>Logo Here</div>
+      
+        <div class="logo">Capo Calculator</div>
         <div class="nav-items">
           <ul>
-            <li>Capo Calcuator</li>
+            <li><a href="#">Calc some chords</a></li>
+            <li><a href="#">Check your notes</a></li>
+            <li><a href="#">What chord should I play? </a></li>
+            
           </ul>
         </div>
-      </div>
+      
     </div>
   )
 }

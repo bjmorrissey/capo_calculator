@@ -9,9 +9,9 @@ import ChordGraph from './ChordGraph';
 
 const ChordConversion = (props) => {
     const [enteredChords, setEnteredChords] = useState('')
-    const [chordChart, setChordChart] = useState('')
+
   
- 
+    const chordchart = document.querySelector('.chordchart')
     // const chordQuery = () => {
     //   if (enteredChords === '') {
     //     return;
@@ -24,19 +24,17 @@ const ChordConversion = (props) => {
 
          
     // }
-    console.log(chordChart)
     const RenderSuggest = () => {
-        if (!props.convertedChords) {
-          return;
-        } else {
-          return( 
+      if (!props.convertedChords) {
+        return;
+      } else {
+        return( 
           props.convertedChords.map(sugg => {
             if (Object.keys(sugg)) {
               let chords = String(Object.values(sugg)).split(',')
-  
               let chords2 = chords.map(chord => 
                 <div className="chord" onClick={() => props.chordLookup(chord)}>{chord}</div>
-              )
+                )
     
               return (
                 <div className="capoSelection">
@@ -80,17 +78,17 @@ const ChordConversion = (props) => {
                   </div>
 
                 </div>
-                { props.chordChart===null? '' : <ChordGraph name={props.chordChart[0].name} finger={props.chordChart[0].finger} strum={props.chordChart[0].strum} /> }      
-      
-        
+                <div className="chordchart">
+                  { props.chordChart===null? '' : <ChordGraph name={props.chordChart[0].name} finger={props.chordChart[0].finger} strum={props.chordChart[0].strum} /> }      
+                </div>
+       
       </div>
-      </div>
+    </div>
   )
 }
 
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     keys: state.keys, 
     notesRun: state.notesRun,  
