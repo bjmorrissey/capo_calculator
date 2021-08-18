@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/capo_calculator/static/css/main.4739682c.chunk.css",
-    "main.js": "/capo_calculator/static/js/main.f47c36b2.chunk.js",
-    "main.js.map": "/capo_calculator/static/js/main.f47c36b2.chunk.js.map",
+    "main.js": "/capo_calculator/static/js/main.b028ce37.chunk.js",
+    "main.js.map": "/capo_calculator/static/js/main.b028ce37.chunk.js.map",
     "runtime-main.js": "/capo_calculator/static/js/runtime-main.07f0f796.js",
     "runtime-main.js.map": "/capo_calculator/static/js/runtime-main.07f0f796.js.map",
     "static/js/2.1e1ce301.chunk.js": "/capo_calculator/static/js/2.1e1ce301.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.07f0f796.js",
     "static/js/2.1e1ce301.chunk.js",
     "static/css/main.4739682c.chunk.css",
-    "static/js/main.f47c36b2.chunk.js"
+    "static/js/main.b028ce37.chunk.js"
   ]
 }
