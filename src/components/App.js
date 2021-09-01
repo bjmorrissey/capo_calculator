@@ -7,7 +7,7 @@ import TuningDropdown from './TuningDropdown';
 
 
 const showCalc = () => {
-  if (window.location.pathname === '/capo_calculator/calc') {
+  if (window.location.pathname === '/capo_calculator/') {
     return <ChordConversion />
   }
 }
@@ -20,7 +20,7 @@ const showChord = () => {
 
 
 const capoCheck = () => {
-  if (window.location.pathname === '/capo_calculator/capo_check') {
+  if (window.location.pathname === '/capo_calculator/capo_check/') {
     return <TuningDropdown />
   }
 }
@@ -30,9 +30,8 @@ const App = (props) => {
 
    return (
     <div>
-    <ChordConversion />
-        {/* <Navbar /> */}
-        {/* {showCalc()}
+        <Navbar />
+         {showCalc()}
         {/* {showChord()} */}
         {capoCheck()} */}
       {/* <ShowChord  /> */}

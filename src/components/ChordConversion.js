@@ -71,7 +71,7 @@ const ChordConversion = (props) => {
                 </div>
                 <div className="chorddiagram">
                  
-                  {props.chordChart && props.chordChart[0].name !== undefined ? 
+                  {props.chordChart && props.chordChart[0]  !== undefined ?  
                   
                   
                   <ChordGraph name={props.chordChart[0].name} finger={props.chordChart[0].finger} strum={props.chordChart[0].strum} />  : ''}
