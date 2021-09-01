@@ -30,10 +30,11 @@ const App = (props) => {
 
    return (
     <div>
-        <Navbar />
-        {showCalc()}
+    <ChordConversion />
+        {/* <Navbar /> */}
+        {/* {showCalc()}
         {/* {showChord()} */}
-        {capoCheck()}
+        {capoCheck()} */}
       {/* <ShowChord  /> */}
       {/* {chordShower()} */}
     </div>
