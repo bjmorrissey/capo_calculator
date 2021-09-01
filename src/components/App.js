@@ -1,17 +1,40 @@
 import React from 'react'
 import ChordConversion from './ChordConversion'
 // import ChordGraph from './ChordGraph'
-// import ShowChord from './ShowChord';
+import ShowChord from './ShowChord';
 import Navbar from './Navbar';
 import {connect} from 'react-redux';
+import TuningDropdown from './TuningDropdown';
+
+
+const showCalc = () => {
+  if (window.location.pathname === '/capo_calculator') {
+    return <ChordConversion />
+  }
+}
+
+const showChord = () => {
+  if (window.location.pathname === '/show_chord') {
+    return <ShowChord />
+  }
+}
+
+
+const capoCheck = () => {
+  if (window.location.pathname === '/capo_check') {
+    return <TuningDropdown />
+  }
+}
 
 
 const App = (props) => {
 
    return (
     <div>
-      {/* <Navbar /> */}
-      <ChordConversion />
+        <Navbar />
+        {showCalc()}
+        {/* {showChord()} */}
+        {capoCheck()}
       {/* <ShowChord  /> */}
       {/* {chordShower()} */}
     </div>

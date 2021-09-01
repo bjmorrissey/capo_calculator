@@ -1,8 +1,8 @@
 import React from 'react'
 
 const ChordGraph = (props) => {
-
-  if (!props) {
+  console.log(props)
+  if (props === undefined) {
     return <div>Type in a chord</div>
   }
   
@@ -128,7 +128,7 @@ const ChordGraph = (props) => {
     
  
  return(
-  //  <div className="chordgraph">
+
     
    <svg width={vPwidth} height={vpHeight}>
       <g>
@@ -157,7 +157,7 @@ const ChordGraph = (props) => {
       </g>
        
    </svg>
-  //  </div>
+ 
  )
 }
 

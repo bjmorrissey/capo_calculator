@@ -1,26 +1,13 @@
 import React,  { useState } from 'react';
 import {connect} from 'react-redux';
-// import chordValidate from '../logic/chordValidate';
-// import {keyValidate, keyLookup, keycheck} from '../logic/keyValidate';
+
 import {chordsChosen, chordLookup} from "../actions"
 import ChordGraph from './ChordGraph';
-// import capoSuggest from '../logic/capoSuggest'
 
 
 const ChordConversion = (props) => {
     const [enteredChords, setEnteredChords] = useState('')
 
-  
-    const chordchart = document.querySelector('.chordchart')
-    // const chordQuery = () => {
-    //   if (enteredChords === '') {
-    //     return;
-    //   }
-    //   const correctChords = chordValidate(enteredChords, props.notesRun)
-    //   const key = keyValidate(correctChords, props.keys)
-    //   const keyLkup = keyLookup(key, props.keys)
-    //   const keyck = keycheck(keyLkup, props.keys)
-    //   setSuggestion(capoSuggest(keyLkup, correctChords, keyck, props.tunings))
 
          
     // }
@@ -33,7 +20,10 @@ const ChordConversion = (props) => {
             if (Object.keys(sugg)) {
               let chords = String(Object.values(sugg)).split(',')
               let chords2 = chords.map(chord => 
-                <div className="chord" onClick={() => props.chordLookup(chord)}>{chord}</div>
+                <div className="chord" onClick={() => props.chordLookup(chord)}>
+                {chord.slice(0,1)} <span className="sharp"> {chord.slice(1)} </span> 
+                
+                </div>
                 )
     
               return (
@@ -48,7 +38,8 @@ const ChordConversion = (props) => {
         }
     }
 
-   
+  
+
     return (
     <div className="chordcoversion">
       <h1>Capo Calculator</h1>
@@ -78,8 +69,13 @@ const ChordConversion = (props) => {
                   </div>
 
                 </div>
-                <div className="chordchart">
-                  { props.chordChart===null? '' : <ChordGraph name={props.chordChart[0].name} finger={props.chordChart[0].finger} strum={props.chordChart[0].strum} /> }      
+                <div className="chorddiagram">
+                 
+                  {props.chordChart && props.chordChart[0].name !== undefined ? 
+                  
+                  
+                  <ChordGraph name={props.chordChart[0].name} finger={props.chordChart[0].finger} strum={props.chordChart[0].strum} />  : ''}
+                        
                 </div>
        
       </div>

@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-const tuningsReducer =  [
+const tuningsReducer = () => {
+  return [
     {
       id: 'standard',
       name: 'Standard tuning',
@@ -62,7 +63,8 @@ const tuningsReducer =  [
       notes: ['C', 'G', 'C', 'G', 'C', 'E'],
       freq: [65.41, 98, 130.81, 196, 261.63, 329.64]
     },
-  ];
+  ]
+};
 
 const selectedTuningReducer = (selectedTuning=null, action) => {
   if(action.type === 'TUNING_SELECTION') {
@@ -152,45 +154,46 @@ const keyPicker = (selectedKey = null, action) => {
   return selectedKey;
 }
 
-const notesRunReducer = 
- [
-    {
-      0: ['A']
-    },
-    {
-      1: ['A#', 'Bb']
-    },
-    {
-      2: ['B']
-    },
-    {
-      3: ['C']
-    },
-    {
-      4: ['C#', 'Db']
-    },
-    {
-      5: ['D']
-    },
-    {
-      6: ['D#', 'Eb']
-    },
-    {
-      7: ['E']
-    },
-    {
-      8: ['F']
-    },
-    {
-      9: ['F#', 'Gb']
-    },
-    {
-      10: ['G']
-    },
-    {
-      11: ['G#', 'Ab']
-    }
-]
+const notesRunReducer = () => {
+  return [
+     {
+       0: ['A']
+     },
+     {
+       1: ['A#', 'Bb']
+     },
+     {
+       2: ['B']
+     },
+     {
+       3: ['C']
+     },
+     {
+       4: ['C#', 'Db']
+     },
+     {
+       5: ['D']
+     },
+     {
+       6: ['D#', 'Eb']
+     },
+     {
+       7: ['E']
+     },
+     {
+       8: ['F']
+     },
+     {
+       9: ['F#', 'Gb']
+     },
+     {
+       10: ['G']
+     },
+     {
+       11: ['G#', 'Ab']
+     }
+ ]
+}
   
 const chordLayouts = 
   
@@ -200,8 +203,16 @@ const chordLayouts =
       finger: [null, null, 2, 2, 2, null], strum: ['X','0', '2', '1', '3', '0']
     },
     {
+      name: "Amaj7",
+      finger: [null, null, 2, 1, 2, null], strum: ['X','0', '2', '1', '3', '0']
+    },
+    {
       name: "Am",
       finger: [null, null, 2, 2, 1, null], strum: ['X','0', '2', '3', '1', '0']
+    },
+    {
+      name: "Am7",
+      finger: [null, null, 2, null, 1, null], strum: ['X','0', '2', '0', '1', '0']
     },
     {
       name: 'A#',
@@ -209,9 +220,8 @@ const chordLayouts =
       strum: ['X','1', '3', '3', '3', '1']
     },
     {
-      name: "Bb",
-      finger: [null, 1, 3, 3, 3, 1], 
-      strum: ['X','1', '3', '3', '3', '1']
+      name: "A#maj7",
+      finger: [null, 1, 3, 2, 3, 1], strum: ['X','1', '3', '2', '4', '1']
     },
     {
       name: 'A#m',
@@ -219,9 +229,28 @@ const chordLayouts =
       strum: ['X','1', '3', '4', '2', '1']
     },
     {
+      name: "A#m7",
+      finger: [null, 1, 3, 1, 2, 1], strum: ['X','1', '3', '1', '2', '1']
+    },
+    {
+      name: "Bb",
+      finger: [null, 1, 3, 3, 3, 1], 
+      strum: ['X','1', '3', '3', '3', '1']
+    },
+    {
       name: "Bbm",
       finger: [null, 1, 3, 3, 2, 1], 
       strum: ['X','1', '3', '4', '2', '1']
+    },
+    {
+      name: "Bbmaj7",
+      finger: [null, 1, 3, 2, 3, 1], 
+      strum: ['X','1', '3', '2', '4', '1']
+    },
+    {
+      name: "Bbm7",
+      finger: [null, 1, 3, 1, 2, 1], 
+      strum: ['X','1', '3', '1', '2', '1']
     },
     {
       name: "B",
@@ -232,6 +261,17 @@ const chordLayouts =
       finger: [null, 2, 4, 4, 3, 2], 
       strum: ['X','1', '3', '4', '2', '1']
     },
+    
+    {
+      name: "Bmaj7",
+      finger: [null, 2, 4, 3, 4, 2], 
+      strum: ['X','1', '3', '2', '4', '1']
+    },
+    {
+      name: "Bm7",
+      finger: [null, 2, 4, 2, 3, 2], 
+      strum: ['X','1', '3', '1', '2', '1']
+    },
     {
       name: "C",
       finger: [null, 3, 2, null, 1, null], strum: ['X','3', '2', '0', '1', '0']
@@ -240,6 +280,16 @@ const chordLayouts =
       name: "Cm",
       finger: [null, 3, 5, 5, 4, 3], 
       strum: ['X','1', '3', '4', '2', '1']
+    },
+    {
+      name: "Cmaj7",
+      finger: [null, 3, 2, null, null, null], 
+      strum: ['X','3', '2', '0', '0', '0']
+    },
+    {
+      name: "Cm7",
+      finger: [null, 3, 5, 3, 4, 3], 
+      strum: ['X','1', '3', '1', '2', '1']
     },
     {
       name: 'C#',
@@ -363,6 +413,7 @@ const chordLayouts =
       finger: [null, null, 1, 1, null, null],
       strum: ['X', 'X', '2', '3', '0', 'X']
     },
+   
   ]
   
 
@@ -374,21 +425,25 @@ const chordSelectionReducer = (selectedChord=null, action) => {
       // let validator = action.payload.replaceAll(',', '').replaceAll(',','').split(' ')
       let validator = action.payload.replaceAll(', ', ' ').replaceAll(',',' ').split(' ')
       let capValidator = [];
+      let notesRun = notesRunReducer()
+      
     
       //check array items to remove anything not in notesRun
       validator.forEach(chord => {
         if (chord[0]) {
           if (chord[0] === chord[0].toUpperCase()) {
             capValidator.push(chord)
+           
           } else {
             capValidator.push(chord[0].toUpperCase()+chord.slice(1))
           }
         }
        
       })
-      const notesRefined = notesRunReducer.map(group => Object.values(group).join(',')).join(',').split(',')
+      const notesRefined = notesRun.map(group => Object.values(group).join(',')).join(',').split(',')
       const checkedChords = capValidator.filter(chord => notesRefined.includes(chord[0]))
-    
+      
+   
      
       const completeChords = checkedChords.filter(chord => chord.length === 1 || chord.slice(1, 2).includes('m') || chord.slice(1, 4).includes('dim') || chord.slice(1, 2).includes('7') || chord.slice(1, 2).includes('#') || chord.slice(1, 2).includes('b'))
       
@@ -451,8 +506,8 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         }
         
         
-        //This is where to start tomorrow morning!!! Tie in the notes, etc. to the capoSuggest 
-
+       
+        let standardTuning = tuningsReducer()[0];
 
 
         // find index in notesRun to calc
@@ -460,9 +515,9 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         let capoTwoRec;
         let capoThreeRec;
         let capoFourRec;
-        const openStringSix = tuningsReducer[0].notes[0]
-        const openStringFive = tuningsReducer[0].notes[1]
-        const openStringFour = tuningsReducer[0].notes[2]
+        const openStringSix = standardTuning.notes[0]
+        const openStringFive = standardTuning.notes[1]
+        const openStringFour = standardTuning.notes[2]
         const openStringSixIndex = notes.indexOf(openStringSix)
         const openStringFiveIndex = notes.indexOf(openStringFive)
         const openStringFourIndex = notes.indexOf(openStringFour)
@@ -481,12 +536,6 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           return stringNotes;
         }
           
-        
-        // console.log(songkey)
-        // console.log(sixthStringNotes.indexOf(songkey))
-        // console.log(fifthStringNotes.indexOf(songkey))
-        // console.log(fourthStringNotes.indexOf(songkey))
-        
         if (sixthStringNotes.indexOf(songkey) < fifthStringNotes.indexOf(songkey)) {
           capoTwoRec = sixthStringNotes.indexOf(songkey)
           capoThreeRec = fifthStringNotes.indexOf(songkey)-5
@@ -499,15 +548,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           capoThreeRec = sixthStringNotes.indexOf(songkey) 
         }
         
-        
-        //  console.log(`Capo 1: ${capoOneRec}`)
-        //  console.log(`Capo 2: ${capoTwoRec}`)
-        //  console.log(`Capo 3: ${capoThreeRec}`)
-        //  console.log(`Capo 4: ${capoFourRec}`)
-         
-        
-        
-        function chordChange(capo) {
+         function chordChange(capo) {
           const chordIndx = completeChords.map(chord => {
             if (chord.slice(1,2) === '#' || chord.slice(1,2) === 'b') {
               
@@ -529,11 +570,14 @@ const chordSelectionReducer = (selectedChord=null, action) => {
               return indx
             }
           })
+          // console.log(comboChordIndx)
+          // console.log(completeChords)
+          // console.log(notes)
         
           const newChords = completeChords.map((chord, i) => {
-            return notes[comboChordIndx[i]]+(chord.slice(1,2) && chord.slice(1,2) !== '#' && chord.slice(1,2) !== 'b' ? chord.slice(1) : '')
+            return notes[comboChordIndx[i]] + (chord.slice(1, 2) !== "#" && chord.slice(1,2) !== 'b' ? chord.slice(1) : chord.slice(2))
+            
           })
-        
           return newChords
           }
         
@@ -558,11 +602,19 @@ const chordSelectionReducer = (selectedChord=null, action) => {
 
 //To display correct data for chord chart
 const chordChartSelectionReducer = (selectedChord=null, action) => {
+  
   if (action.type === 'CHORD_SELECTION') {
-    // console.log(action.payload)
     const result = chordLayouts.filter(chord => chord.name === action.payload)
     
-    return result;
+    if (result) {
+
+      return result;
+    } else {
+      return selectedChord;
+    }
+    
+   
+
     
   } else {
     return selectedChord;
