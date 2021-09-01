@@ -20,7 +20,7 @@ const showChord = () => {
 
 
 const capoCheck = () => {
-  if (window.location.pathname === '/capo_calculator/capo_check/') {
+  if (window.location.pathname === '/capo_calculator/capo_check') {
     return <TuningDropdown />
   }
 }
@@ -33,7 +33,7 @@ const App = (props) => {
         <Navbar />
          {showCalc()}
         {/* {showChord()} */}
-        {capoCheck()} */}
+        {capoCheck()} 
       {/* <ShowChord  /> */}
       {/* {chordShower()} */}
     </div>
