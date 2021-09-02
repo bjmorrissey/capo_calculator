@@ -32,6 +32,7 @@ const App = (props) => {
       <Route path="/" exact component={showCalc} />
       <Route path="/capo_calculator" exact component={showCalc} />
       <Route path="/capo_calculator/capo_check" component={capoCheck} />
+      <Route path="/capo_check" component={capoCheck} />
 
       </BrowserRouter> 
     </div>
