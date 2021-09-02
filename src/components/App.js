@@ -28,7 +28,7 @@ const App = (props) => {
    return (
     <div>
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename={`${process.env.PUBLIC_URL}/capo_calculator`} >
       <div>
         <Route path="/" exact component={showCalc} />
         <Route path="/capo_calculator" component={showCalc} />
