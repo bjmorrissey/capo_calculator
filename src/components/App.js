@@ -13,16 +13,13 @@ const showCalc = () => {
 
 
 const showChord = () => {
-  if (window.location.pathname === '/show_chord') {
     return <ShowChord />
-  }
+  
 }
 
 
 const capoCheck = () => {
-  if (window.location.pathname === '/capo_calculator/capo_check') {
     return <TuningDropdown />
-  }
 }
 
 const App = (props) => {
@@ -34,15 +31,15 @@ const App = (props) => {
       <BrowserRouter>
       <Route path="/" exact component={showCalc} />
       <Route path="/capo_calculator" exact component={showCalc} />
-      <Route path="/capo_check" exact component={showCalc} />
+      <Route path="/capo_calculator/capo_check" component={capoCheck} />
 
       </BrowserRouter> 
     </div>
 
         <Navbar />
-         {showCalc()}
+         {/* {showCalc()} */}
         {/* {showChord()} */}
-        {capoCheck()} 
+        {/* {capoCheck()}  */}
       {/* <ShowChord  /> */}
       {/* {chordShower()} */}
     </div>
