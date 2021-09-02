@@ -28,12 +28,12 @@ const App = (props) => {
    return (
     <div>
     <div>
-      <BrowserRouter basename={`${process.env.PUBLIC_URL}/capo_calculator`} >
+      <BrowserRouter>
       <div>
         <Route path="/" exact component={showCalc} />
-        <Route path="/capo_calculator" component={showCalc} />
-        <Route path="/capo_calculator/capo_check" component={capoCheck} />
-        <Route path="/capo_check" component={capoCheck} />
+        <Route path="/capo_calculator" exact component={showCalc} />
+        <Route path="/capo_calculator/capo_check" exact component={capoCheck} />
+        <Route path="/capo_check" exact component={capoCheck} />
       </div>
       </BrowserRouter> 
     </div>
