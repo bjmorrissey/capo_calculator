@@ -29,11 +29,12 @@ const App = (props) => {
     <div>
     <div>
       <BrowserRouter>
-      <Route path="/" exact component={showCalc} />
-      <Route path="/capo_calculator" exact component={showCalc} />
-      <Route path="/capo_calculator/capo_check" component={capoCheck} />
-      <Route path="/capo_check" component={capoCheck} />
-
+      <div>
+        <Route path="/" exact component={showCalc} />
+        <Route path="/capo_calculator" component={showCalc} />
+        <Route path="/capo_calculator/capo_check" component={capoCheck} />
+        <Route path="/capo_check" component={capoCheck} />
+      </div>
       </BrowserRouter> 
     </div>
 
