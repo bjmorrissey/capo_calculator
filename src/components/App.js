@@ -7,8 +7,13 @@ import TuningDropdown from './TuningDropdown';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 const showCalc = () => {
-    return <ChordConversion />
-  
+    return (
+    <div>
+      <Navbar />
+      <ChordConversion />
+    </div>
+    
+    )
   }
 
 
@@ -19,7 +24,12 @@ const showChord = () => {
 
 
 const capoCheck = () => {
-    return <TuningDropdown />
+    return (
+    <div>
+      <Navbar />
+      <TuningDropdown />
+    </div>
+    )
 }
 
 const App = (props) => {
@@ -38,7 +48,7 @@ const App = (props) => {
       </BrowserRouter> 
     </div>
 
-        <Navbar />
+        
          {/* {showCalc()} */}
         {/* {showChord()} */}
         {/* {capoCheck()}  */}
