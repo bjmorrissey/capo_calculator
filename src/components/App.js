@@ -34,7 +34,6 @@ const capoCheck = () => {
 
 const App = (props) => {
   
-  console.log(capoCheck)
    return (
     <div>
     <div>

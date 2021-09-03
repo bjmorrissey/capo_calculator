@@ -1,3 +1,4 @@
+import { tsConstructSignatureDeclaration } from '@babel/types';
 import { combineReducers } from 'redux';
 
 const tuningsReducer = () => {
@@ -86,8 +87,13 @@ const keysReducer =
     chords: ['A', 'Bm', 'C#m', 'D', 'E', 'F#m', 'G#dim']
   },
   {
+    name: 'A#',
+    tense: 'sharp',
+    chords: ['A#', 'Bm', 'Cm', 'D#', 'E', 'Fm', 'Bdim']
+  },
+  {
     name: 'Bb',
-    tenst: 'flat',
+    tense: 'flat',
     chords: ['Bb', 'Cm', 'Dm', 'Eb', 'F', 'Gm', 'Adim']
   },
   {
@@ -96,14 +102,14 @@ const keysReducer =
     chords: ['B', 'C#m', 'D#m', 'E', 'F#', 'G#m', 'A#dim']
   },
   {
-    name: 'Cb',
-    tense: 'flat',
-    chords: ['Cb', 'Dbm', 'Ebm', 'Fb', 'Gb', 'Abm', 'Bbdim']
-  },
-  {
     name: 'C',
     tense: 'sharp',
     chords: ['C', 'Dm', 'Ebm', 'F', 'G', 'Am', 'Bdim']
+  },
+  {
+    name: 'C#',
+    tense: 'sharp',
+    chords: ['C#', 'D#m', 'Em', 'F#', 'G#', 'A#m', 'Bdim']
   },
   {
     name: 'Db',
@@ -114,6 +120,11 @@ const keysReducer =
     name: 'D',
     tense: 'sharp',
     chords: ['D', 'Em', 'F#m', 'G', 'A', 'Bm', 'C#dim']
+  },
+  {
+    name: 'D#',
+    tense: 'sharp',
+    chords: ['D#', 'Em', 'Fm', 'G#', 'A#', 'Bm', 'C#dim']
   },
   {
     name: 'Eb',
@@ -144,6 +155,11 @@ const keysReducer =
     name: 'G',
     tense: 'sharp',
     chords: ['G', 'Am', 'Bm', 'C', 'D', 'Em', 'F#dim']
+  },
+  {
+    name: 'G#',
+    tense: 'sharp',
+    chords: ['G#', 'A#m', 'Cm', 'Db', 'Eb', 'Fm', 'Gdim']
   }
 ]
 
@@ -297,9 +313,9 @@ const chordLayouts =
       strum: ['X','X', 'X', '1', '3', '2']
     },
     {
-      name: 'Db',
-      finger: [null, null, null, 1, 2, 1], 
-      strum: ['X','X', 'X', '1', '3', '2']
+      name: 'C#maj7',
+      finger: [null, 4, 3, 1, 1, 1], 
+      strum: ['X','4', '3', '1', '1', '1']
     },
     {
       name: 'C#m',
@@ -307,9 +323,30 @@ const chordLayouts =
       strum: ['X','X', 'X', '1', '3', '0']
     },
     {
+      name: 'C#m7',
+      finger: [null, 4, 2, 1, null, null], 
+      strum: ['X','4', '2', '1', '0', '0']
+    },
+
+    {
+      name: 'Db',
+      finger: [null, null, null, 1, 2, 1], 
+      strum: ['X','X', 'X', '1', '3', '2']
+    },
+    {
+      name: 'Dbmaj7',
+      finger: [null, 4, 3, 1, 1, 1], 
+      strum: ['X','4', '3', '1', '1', '1']
+    },
+    {
       name: 'Dbm',
       finger: [null, null, null, 1, 2, null], 
       strum: ['X','X', 'X', '1', '3', '0']
+    },
+    {
+      name: 'Dbm7',
+      finger: [null, 4, 2, 1, null, null], 
+      strum: ['X','4', '2', '1', '0', '0']
     },
     {
       name: "D", 
@@ -317,9 +354,19 @@ const chordLayouts =
       strum: ['X', 'X', '0', '1', '3', '2']
     },
     {
+      name: "Dmaj7", 
+      finger: [null, null, null, 2, 2, 2],
+      strum: ['X', 'X', '0', '1', '1', '1']
+    },
+    {
       name: "Dm", 
       finger: [null, null, null, 2, 3, 1],
       strum: ['X', 'X', '0', '2', '3', '1']
+    },
+    {
+      name: "Dm7", 
+      finger: [null, null, null, 2, 1, 1],
+      strum: ['X', 'X', '0', '2', '1', '1']
     },
     {
       name: 'D#', 
@@ -327,10 +374,21 @@ const chordLayouts =
       strum: ['X', 'X', '1', '2', '4', '3']
     },
     {
+      name: 'D#maj7', 
+      finger: [null, null, 1, 3, 3, 3],
+      strum: ['X', 'X', '1', '3', '3', '3']
+    },
+    {
+      name: 'D#m7', 
+      finger: [null, null, 1, 3, 2, 2],
+      strum: ['X', 'X', '1', '4', '2', '3']
+    },
+    {
       name: 'Eb',
       finger: [null, null, 1, 3, 4, 3],
       strum: ['X', 'X', '1', '2', '4', '3']
     },
+    
     {
       name: 'D#m', 
       finger: [null, null, 1, 3, 4, 2],
@@ -341,6 +399,16 @@ const chordLayouts =
       finger: [null, null, 1, 3, 4, 2],
       strum: ['X', 'X', '1', '3', '4', '2']
     },
+    {
+      name: 'Ebmaj7', 
+      finger: [null, null, 1, 3, 3, 3],
+      strum: ['X', 'X', '1', '3', '3', '3']
+    },
+    {
+      name: 'Ebm7', 
+      finger: [null, null, 1, 3, 2, 2],
+      strum: ['X', 'X', '1', '4', '2', '3']
+    },
 
     {
       name: "E", 
@@ -348,9 +416,19 @@ const chordLayouts =
       strum: ['0', '2', '3', '1', '0', '0']
     },
     {
+      name: "Emaj7", 
+      finger: [null, 2, 1, 1, null, null],
+      strum: ['0', '3', '1', '2', '0', '0']
+    },
+    {
       name: "Em", 
       finger: [null, 2, 2, null, null, null],
       strum: ['0', '2', '3', '0', '0', '0']
+    },
+    {
+      name: "Em7", 
+      finger: [null, 2, null, null, null, null],
+      strum: ['0', '2', '0', '0', '0', '0']
     },
     
     {
@@ -359,17 +437,22 @@ const chordLayouts =
       strum: ['1', '3', '4', '2', '1', '1']
     },
     {
+      name: "Fmaj7", 
+      finger: [1, null, 2, 2, 1, null],
+      strum: ['1', 'X', '3', '4', '2', 'X']
+    },
+    {
       name: "Fm", 
       finger: [1, 3, 3, 1, 1, 1],
       strum: ['1', '3', '4', '1', '1', '1']
     },
     {
-      name: 'F#', 
-      finger: [2, 4, 4, 3, 2, 2],
-      strum: ['1', '3', '4', '2', '1', '1']
+      name: "Fm7", 
+      finger: [1, 3, 1, 1, 4, 1],
+      strum: ['1', '3', '1', '1', '4', '1']
     },
     {
-      name: 'Gb', 
+      name: 'F#', 
       finger: [2, 4, 4, 3, 2, 2],
       strum: ['1', '3', '4', '2', '1', '1']
     },
@@ -378,6 +461,32 @@ const chordLayouts =
       finger: [2, 4, 4, 2, 2, 2],
       strum: ['1', '3', '4', '1', '1', '1']
     },
+    {
+      name: 'F#maj7', 
+      finger: [null, null, 4, 3, 2, 1],
+      strum: ['X', 'X', '4', '2', '1', '1']
+    },
+    {
+      name: 'F#m7', 
+      finger: [2, 4, 2, 2, 5, 2],
+      strum: ['1', '3', '1', '1', '4', '1']
+    },
+    {
+      name: 'Gb', 
+      finger: [2, 4, 4, 3, 2, 2],
+      strum: ['1', '3', '4', '2', '1', '1']
+    },
+    {
+      name: 'Gbmaj7', 
+      finger: [null, null, 4, 3, 2, 1],
+      strum: ['X', 'X', '4', '2', '1', '1']
+    },
+    {
+      name: 'Gbm7', 
+      finger: [2, 4, 2, 2, 5, 2],
+      strum: ['1', '3', '1', '1', '4', '1']
+    },
+
     {
       name: 'Gbm', 
       finger: [2, 4, 4, 2, 2, 2],
@@ -389,9 +498,19 @@ const chordLayouts =
       strum: ['3', '2', '0', '0', '3', '3']
     },
     {
+      name: "Gmaj7", 
+      finger: [3, 2, null, null, null, 2],
+      strum: ['3', '2', '0', '0', '0', '1']
+    },
+    {
       name: "Gm", 
       finger: [3, 5, 5, 3, 3, 3],
       strum: ['1', '3', '4', '1', '1', '1']
+    },
+    {
+      name: "Gm7", 
+      finger: [3, 5, 3, 3, 3, 3],
+      strum: ['1', '3', '1', '1', '1', '1']
     },
     {
       name: "Ab", 
@@ -399,14 +518,34 @@ const chordLayouts =
       strum: ['X', 'X', '1', '1', '1', 'X']
     },
     {
+      name: 'Abmaj7', 
+      finger: [null, null, 1, 1, 1, 3],
+      strum: ['X', 'X', '1', '1', '1', '4']
+    },
+    {
       name: 'G#', 
       finger: [null, null, 1, 1, 1, null],
       strum: ['X', 'X', '1', '1', '1', 'X']
     },
     {
+      name: 'G#maj7', 
+      finger: [null, null, 1, 1, 1, 3],
+      strum: ['X', 'X', '1', '1', '1', '4']
+    },
+    {
+      name: 'G#m7', 
+      finger: [4, null, 4, 4, 4, null],
+      strum: ['1', 'X', '2', '3', '4', 'X']
+    },
+    {
       name: "Abm", 
       finger: [null, null, 1, 1, null, null],
       strum: ['X', 'X', '2', '3', '0', 'X']
+    },
+    {
+      name: 'Abm7', 
+      finger: [4, null, 4, 4, 4, null],
+      strum: ['1', 'X', '2', '3', '4', 'X']
     },
     {
       name: "G#m",
@@ -443,13 +582,35 @@ const chordSelectionReducer = (selectedChord=null, action) => {
       const notesRefined = notesRun.map(group => Object.values(group).join(',')).join(',').split(',')
       const checkedChords = capValidator.filter(chord => notesRefined.includes(chord[0]))
       
-   
+      // console.log(checkedChords)
      
-      const completeChords = checkedChords.filter(chord => chord.length === 1 || chord.slice(1, 2).includes('m') || chord.slice(1, 4).includes('dim') || chord.slice(1, 2).includes('7') || chord.slice(1, 2).includes('#') || chord.slice(1, 2).includes('b'))
+      const completeChords = checkedChords.filter(chord => chord.length === 1 || chord.slice(1, 2).includes('m') || chord.slice(1, 4).includes('dim') || chord.slice(1, 2).includes('7') || chord.slice(1, 2).includes('#') || chord.slice(1, 2).includes('b') || chord[1].includes('a'))
+
+      // console.log(completeChords)
+
+      const complete2 = completeChords.map(chord => {
+        if (chord.includes('minor')) {
+          return chord.replaceAll('minor','m')
+        }
+        if (chord.includes('diminished')) {
+          return chord.replaceAll('diminished','dim')
+        }
+        if (chord.includes('augmented')) {
+          return chord.replaceAll('augmented','aug')
+        }
+        if (chord.length > 2) {
+          if (chord[2] === 'm' || chord[2] === 'd') {
+            return chord
+          }
+          return chord.slice(0,2)
+        }
+       
+          return chord
+        })
+        
       
-      
+
       // this is the second portion to checking the keys
-      // return completedChords
       
       let keyarr = []
       let keyobj = {};  
@@ -459,17 +620,21 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         //check chord for in each key, return keys that specific chord is in
       if (chordLength === 1) 
       {
-        songkey = completeChords[0]
+        songkey = complete2[0]
+        keyarr.push(complete2[0])
+        keyobj.key = complete2[0]
+        
+        
       } 
       else if (chordLength > 1) 
       {
         for (let i = 0; i < chordLength-1; i++) {
-          if (completeChords[i] === completeChords[i+1]) {
-            songkey = completeChords[i]
+          if (complete2[i] === complete2[i+1]) {
+            songkey = complete2[i]
           }
             else
           {
-            completeChords.forEach((chord, i) => {
+            complete2.forEach((chord, i) => {
               for (const [songkey, value] of Object.entries(keysReducer)) {
                 if (value.chords.includes(chord)) {
                   keyarr.push(value.name)
@@ -487,7 +652,9 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         }
       } 
           
-       
+      //  console.log(songkey)
+      //  console.log(keyobj)
+      //  console.log(keyarr)
       
         // Validating if there's a flat or sharp? 
         let notes = [];
@@ -495,6 +662,8 @@ const chordSelectionReducer = (selectedChord=null, action) => {
       
         for (const [keynote, values] of Object.entries(keysReducer)) {
           if (values.name === songkey) {
+            // console.log(values.name)
+            // console.log(values.tense)
             tense = values.tense
           }
         }
@@ -505,7 +674,8 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           notes = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']
         }
         
-        
+        console.log(songkey)
+        console.log(tense)
        
         let standardTuning = tuningsReducer()[0];
 
@@ -549,16 +719,15 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         }
         
          function chordChange(capo) {
-          const chordIndx = completeChords.map(chord => {
+          const chordIndx = complete2.map(chord => {
             if (chord.slice(1,2) === '#' || chord.slice(1,2) === 'b') {
-              
               return notes.indexOf(chord.slice(0,2))
             }else {
               
-            return notes.indexOf(chord[0])
+            return notes.indexOf(chord.slice(0,1))
             }
           })
-        
+          
           const newChordIndx = chordIndx.map(indx => {
             return indx - capo
           })
@@ -570,17 +739,25 @@ const chordSelectionReducer = (selectedChord=null, action) => {
               return indx
             }
           })
-          // console.log(comboChordIndx)
-          // console.log(completeChords)
-          // console.log(notes)
+          console.log(capoOneRec)
+          console.log(capoTwoRec)
+          console.log(chordIndx)
+          console.log(newChordIndx)
+          console.log(comboChordIndx)
+          console.log(completeChords)
+          console.log(complete2)
+          console.log(notes)
         
-          const newChords = completeChords.map((chord, i) => {
+          const newChords = complete2.map((chord, i) => {
+            // console.log(notes[12])
             return notes[comboChordIndx[i]] + (chord.slice(1, 2) !== "#" && chord.slice(1,2) !== 'b' ? chord.slice(1) : chord.slice(2))
             
           })
+          console.log(newChords)
           return newChords
           }
-        
+          
+
         let capoObj = [
           {[capoOneRec]: chordChange(capoOneRec)},
           {[capoTwoRec]: chordChange(capoTwoRec)},
@@ -588,6 +765,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           {[capoFourRec]: chordChange(capoFourRec)}
         ]
         
+        console.log(capoObj)
          capoObj = capoObj.filter(entry => 
            Object.keys(entry) > 0 )
         

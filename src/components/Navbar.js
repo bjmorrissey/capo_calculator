@@ -12,7 +12,7 @@ const Navbar = () => {
             <li><Link to="/capo_calculator">Calc some chords</Link></li>
             {/* <li><a href="/show_chord">Look up a cowboy chord</a></li> */}
             <li><Link to="/capo_calculator/capo_check">Capo Note Check</Link></li>
-            <li><Link to="#">What chord should I play? </Link></li>
+            {/* <li><Link to="#">What chord should I play? </Link></li> */}
             
           </ul>
         </div>

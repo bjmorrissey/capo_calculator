@@ -7,7 +7,7 @@ const ChordGraph = (props) => {
   }
   
   //neck size controlled by vPHeight. Only edit that!
-  const vpHeight = 200
+  const vpHeight = 250
   const vPwidth = vpHeight * .7
   const neckHeight = vpHeight * .7
   const neckWidth = vPwidth* .8

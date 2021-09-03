@@ -28,7 +28,13 @@
   border-top: 2px solid black;
 
   & .tuningname {
+    font-size: 2.6rem;
     padding-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+  }
+  & .capoplacement {
+    color: white;
   }
 }
 
@@ -36,12 +42,21 @@
   flex-direction: column;
   max-width: 15vw;
   justify-content: start;
-  border: 2px $color-creme solid;
+  border-left: 5px $color-creme solid;
+  border-right: 5px $color-creme solid;
   border-bottom: 0px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
   margin-bottom: 20px;
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(22, 22, 22, 0.3),
+      rgba(22, 22, 22, 0.1)
+    ),
+    url('https://i0.wp.com/www.farmgirlgourmet.com/wp-content/uploads/2014/05/dark-wood-grain-texture.jpg?fit=811%2C1000&ssl=1');
+  background-size: cover;
 
   & .fret {
-    background-color: $color-fretboard;
     padding: 5px;
 
     & ul {
@@ -81,7 +96,10 @@
   }
 
   & .fret0 {
-    background-color: $color-creme;
+    z-index: 1;
+    // background-color: $color-creme;
+    background-image: url('https://www.wallpaperboulevard.com/Images/product/alexa-bone-texture-sjji-l.jpg');
+    background-size: cover;
     color: black;
     list-style: none;
 
@@ -90,7 +108,7 @@
 
       & li {
         padding: 0 0.7rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
         transition: all 0.15s ease;
         text-align: center;
         cursor: pointer;
@@ -110,7 +128,6 @@
 
   .guitarneck {
     max-width: 25vw;
-    border: 2px $color-creme solid;
   }
 }
 
