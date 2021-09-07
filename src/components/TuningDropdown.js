@@ -7,8 +7,8 @@ import Select from 'react-select';
 const TuningDropdown = (props) => {
   const tunings = props.tunings
   
-  const guitarneck = document.querySelector('.guitarneck');
-  const fretboard = document.querySelector('.fretboard');
+  // const guitarneck = document.querySelector('.guitarneck');
+  // const fretboard = document.querySelector('.fretboard');
   let frequencies = []
 
   let [tuningChoice, setTuningChoice] = useState({value:'Standard tuning', label: 'Standard tuning'});
@@ -99,7 +99,7 @@ const TuningDropdown = (props) => {
     const tuningNotes = (tuningName) => {
       let tuneNotes = []
       props.tunings.forEach(tuning => {
-        if(tuning.name == tuningName) {
+        if(tuning.name === tuningName) {
           tuneNotes = tuning.notes
           frequencies = tuning.freq
         }
@@ -115,7 +115,7 @@ const TuningDropdown = (props) => {
     //functionality to show guitar neck
     
     const capoSuffix = (value) => {
-      let number = Number(value);
+      // let number = Number(value);
       let suffix = ''
 
       if (value === '0') {
@@ -144,9 +144,11 @@ const TuningDropdown = (props) => {
 
 
     
+
    const renderFret = () => {
      return(
       neck.map((notes, i) => {
+        console.log(notes)
         return (
           <div>
           <div className= {"fret fret" + i}>

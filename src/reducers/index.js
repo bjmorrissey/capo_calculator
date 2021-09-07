@@ -1,4 +1,3 @@
-import { tsConstructSignatureDeclaration } from '@babel/types';
 import { combineReducers } from 'redux';
 
 const tuningsReducer = () => {
@@ -579,12 +578,13 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         }
        
       })
+
       const notesRefined = notesRun.map(group => Object.values(group).join(',')).join(',').split(',')
       const checkedChords = capValidator.filter(chord => notesRefined.includes(chord[0]))
       
       // console.log(checkedChords)
      
-      const completeChords = checkedChords.filter(chord => chord.length === 1 || chord.slice(1, 2).includes('m') || chord.slice(1, 4).includes('dim') || chord.slice(1, 2).includes('7') || chord.slice(1, 2).includes('#') || chord.slice(1, 2).includes('b') || chord[1].includes('a'))
+      const completeChords = checkedChords.filter(chord => chord.length === 1 || chord.slice(1, 2).includes('m') || chord.slice(1, 4).includes('dim') || chord.slice(1, 2).includes('7') || chord.slice(1, 2).includes('#') || chord.slice(1, 2).includes('b') || chord[1].includes('aug'))
 
       // console.log(completeChords)
 
@@ -599,7 +599,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           return chord.replaceAll('augmented','aug')
         }
         if (chord.length > 2) {
-          if (chord[2] === 'm' || chord[2] === 'd') {
+          if (chord[1] === 'm' || chord[1] === 'd') {
             return chord
           }
           return chord.slice(0,2)
@@ -608,7 +608,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           return chord
         })
         
-      
+ 
 
       // this is the second portion to checking the keys
       
@@ -658,7 +658,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
       
         // Validating if there's a flat or sharp? 
         let notes = [];
-        let tense = ''
+        let tense = 'sharp'
       
         for (const [keynote, values] of Object.entries(keysReducer)) {
           if (values.name === songkey) {
@@ -673,9 +673,18 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         } else {
           notes = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']
         }
-        
+
+        let chordTense = []
+        if (tense === 'sharp') {
+          chordTense = complete2.map((chord, i) => chord.includes("b") ? `${notes[notes.indexOf(chord[0])-1]}`: chord)
+        } 
+        if (tense === 'flat') {
+          chordTense = complete2.map((chord, i) => chord.includes("#") ? `${notes[notes.indexOf(chord[0])+1]}`: chord)
+        }
+        console.log(chordTense)
         console.log(songkey)
-        console.log(tense)
+        
+        // console.log(tense)
        
         let standardTuning = tuningsReducer()[0];
 
@@ -705,13 +714,20 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           }
           return stringNotes;
         }
+
+        if (songkey[1] === 'm') {
+          console.log(songkey[1])
+          songkey = songkey[0]
+        }
           
         if (sixthStringNotes.indexOf(songkey) < fifthStringNotes.indexOf(songkey)) {
           capoTwoRec = sixthStringNotes.indexOf(songkey)
           capoThreeRec = fifthStringNotes.indexOf(songkey)-5
           capoFourRec= fifthStringNotes.indexOf(songkey) - 3
+          // console.log(`capo one recommendation (if): ${fourthStringNotes.indexOf(songkey)-3}`)
           capoOneRec = fourthStringNotes.indexOf(songkey)-3
         } else {
+          // console.log(`Capo one rec (else): ${fifthStringNotes.indexOf(songkey)}`)
           capoOneRec = fifthStringNotes.indexOf(songkey)
           capoTwoRec = sixthStringNotes.indexOf(songkey)- 3
           capoFourRec = fourthStringNotes.indexOf(songkey)
@@ -719,8 +735,11 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         }
         
          function chordChange(capo) {
-          const chordIndx = complete2.map(chord => {
+
+          //Finding index of note on notes array (looking for natural or #/b)
+          const chordIndx = chordTense.map(chord => {
             if (chord.slice(1,2) === '#' || chord.slice(1,2) === 'b') {
+              
               return notes.indexOf(chord.slice(0,2))
             }else {
               
@@ -739,18 +758,23 @@ const chordSelectionReducer = (selectedChord=null, action) => {
               return indx
             }
           })
-          console.log(capoOneRec)
-          console.log(capoTwoRec)
-          console.log(chordIndx)
-          console.log(newChordIndx)
-          console.log(comboChordIndx)
-          console.log(completeChords)
-          console.log(complete2)
-          console.log(notes)
+          // console.log(capoOneRec)
+          // console.log(capoTwoRec)
+          // console.log(chordIndx)
+          // console.log(newChordIndx)
+          // console.log(comboChordIndx)
+          // console.log(completeChords)
+          // console.log(complete2)
+          // console.log(notes)
+          console.log(songkey)
         
-          const newChords = complete2.map((chord, i) => {
-            // console.log(notes[12])
-            return notes[comboChordIndx[i]] + (chord.slice(1, 2) !== "#" && chord.slice(1,2) !== 'b' ? chord.slice(1) : chord.slice(2))
+       
+
+        
+        
+          const newChords = chordTense.map((chord, i) => {
+            let newnote = notes[comboChordIndx[i]] + (chord[1] === "#" || chord[1] === 'b' ? chord.slice(2) : chord.slice(1))
+            return newnote
             
           })
           console.log(newChords)

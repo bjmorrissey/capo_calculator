@@ -7,17 +7,15 @@ const ShowChord = (props) => {
 
   const [chord, setChord] = useState('')
 
-  console.log(props.chordChart)
+  // const chordCheck = (chord) => {
 
-  const chordCheck = (chord) => {
-
-    if (chord !== props.chordchart[0].name) {
-      return 'This chord is not in our system (yet). Sorry!'
-    } else {
-      <ChordGraph name={props.chordChart[0].name} finger={props.chordChart[0].finger} strum={props.chordChart[0].strum} />
-    }
+  //   if (chord !== props.chordchart[0].name) {
+  //     return 'This chord is not in our system (yet). Sorry!'
+  //   } else {
+  //     <ChordGraph name={props.chordChart[0].name} finger={props.chordChart[0].finger} strum={props.chordChart[0].strum} />
+  //   }
      
-  }
+  // }
 
   // }
   return (

@@ -33,7 +33,6 @@ const capoCheck = () => {
 }
 
 const App = (props) => {
-  
    return (
     <div>
     <div>
