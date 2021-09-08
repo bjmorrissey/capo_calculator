@@ -158,7 +158,7 @@ const keysReducer =
   {
     name: 'G#',
     tense: 'sharp',
-    chords: ['G#', 'A#m', 'Cm', 'Db', 'Eb', 'Fm', 'Gdim']
+    chords: ['G#', 'A#m', 'Bm', 'C#', 'D#', 'Em', 'Fdim']
   }
 ]
 
@@ -592,6 +592,9 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         if (chord.includes('minor')) {
           return chord.replaceAll('minor','m')
         }
+        if (chord.includes('major')) {
+          return chord.replaceAll('major','maj')
+        }
         if (chord.includes('diminished')) {
           return chord.replaceAll('diminished','dim')
         }
@@ -599,7 +602,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           return chord.replaceAll('augmented','aug')
         }
         if (chord.length > 2) {
-          if (chord[1] === 'm' || chord[1] === 'd') {
+          if (chord[1] === 'm' || chord[1] === 'd' || chord[1] === 'b' || chord[1] === '#') {
             return chord
           }
           return chord.slice(0,2)
@@ -661,7 +664,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         let tense = 'sharp'
       
         for (const [keynote, values] of Object.entries(keysReducer)) {
-          if (values.name === songkey) {
+          if (values.name === songkey.slice(0,2)) {
             // console.log(values.name)
             // console.log(values.tense)
             tense = values.tense
@@ -676,15 +679,42 @@ const chordSelectionReducer = (selectedChord=null, action) => {
 
         let chordTense = []
         if (tense === 'sharp') {
-          chordTense = complete2.map((chord, i) => chord.includes("b") ? `${notes[notes.indexOf(chord[0])-1]}`: chord)
-        } 
-        if (tense === 'flat') {
-          chordTense = complete2.map((chord, i) => chord.includes("#") ? `${notes[notes.indexOf(chord[0])+1]}`: chord)
+          chordTense = complete2.map((chord, i) =>{
+            if (chord.includes('b')) {
+              let idx = notes.indexOf(chord[0])
+              if (idx <= 0) {
+                idx += 11;
+                return `${notes[idx] + chord.slice(2)}`;
+              }
+              return `${notes[idx-1] + chord.slice(2)}`; 
+            }
+            else {
+              return chord;
+            }
+          })
         }
-        console.log(chordTense)
-        console.log(songkey)
         
-        // console.log(tense)
+        if (tense === 'flat') {
+          chordTense = complete2.map((chord, i) =>{
+            if (chord.includes('#')) {
+              let idx = notes.indexOf(chord[0])
+              console.log(idx);
+              if (idx <= 0) {
+                idx += 11;
+                return `${notes[idx]}`;
+              }
+              return `${notes[idx-1]}`; 
+            }
+            else {
+              return chord;
+            }
+          })
+        }
+
+
+        console.log(`Chord tense: ${chordTense}`)
+        
+        console.log(tense)
        
         let standardTuning = tuningsReducer()[0];
 
@@ -718,6 +748,10 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         if (songkey[1] === 'm') {
           console.log(songkey[1])
           songkey = songkey[0]
+        }
+
+        if (songkey.length > 2) {
+          songkey = songkey.slice(0,2)
         }
           
         if (sixthStringNotes.indexOf(songkey) < fifthStringNotes.indexOf(songkey)) {
@@ -766,7 +800,8 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           // console.log(completeChords)
           // console.log(complete2)
           // console.log(notes)
-          console.log(songkey)
+          console.log(`Songkey: ${songkey}`)
+          console.log(`tense: ${tense}`)
         
        
 
