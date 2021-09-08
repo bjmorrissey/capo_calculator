@@ -4,13 +4,20 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   
-  
+  const toggleActive = () => {
+    const navItems = document.querySelector('.nav-items')
+
+    navItems.classList.toggle('active')
+    
+  }
+
+
 
   return (
     <div className="header">
       
         <div className="logo">Capo Calculator</div>
-          <a href="#" className="togglebutton">
+          <a href="#" className="togglebutton" onClick ={() => toggleActive()} >
             <span className="line"></span>
             <span className="line"></span>
             <span className="line"></span>
