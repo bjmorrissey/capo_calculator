@@ -1,0 +1,615 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+.chordcoversion {
+  max-width: 70%;
+}
+
+.chordcoversion h1 {
+  font-size: 50px;
+  color: #a5c4e7;
+  margin: 100px 0 50px 0;
+  text-align: center;
+}
+
+.chordcoversion .intro {
+  padding: 20px;
+  letter-spacing: 3px;
+}
+
+.chordcoversion .intro p {
+  text-align: center;
+  margin: 40px;
+  font-size: 1.3rem;
+}
+
+.chordcoversion .intro a {
+  color: #a5c4e7;
+}
+
+.chordcoversion .chordinput {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.chordcoversion .chordinput input {
+  font-size: 1.25rem;
+  padding: 5px;
+  margin: 20px 20px 40px 0;
+}
+
+.chordcoversion .chordConvert {
+  font-size: 1.25rem;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background-color: #ddd;
+}
+
+.chordcoversion .chordConvert:hover {
+  background-color: #ccc;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.chordcoversion .chordexp {
+  width: 70%;
+  margin-bottom: 50px;
+}
+
+.chordcoversion .chordexp .capoChart {
+  max-width: 75vw;
+  height: 100%;
+  background-color: #a5c4e7;
+  padding-bottom: 15px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chordcoversion .chordexp .capoChart .charttitle {
+  font-size: 2.25rem;
+  padding: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.chordcoversion .chordexp .capoChart .capotitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5rem;
+  color: #333;
+  border-bottom: solid 1px #333;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #ccc;
+  padding: 5px;
+}
+
+.chordcoversion .chordexp .capoChart .capoSelection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 1.75rem;
+  margin: 15px 0;
+}
+
+.chordcoversion .chordexp .capoChart .capoSelection .fretnumber {
+  width: 35%;
+  padding: 2px;
+}
+
+.chordcoversion .chordexp .capoChart .capoSelection .chordchart {
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.chordcoversion .chordexp .capoChart .capoSelection .chordchart .chord {
+  position: relative;
+  padding: 2px;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.chordcoversion .chordexp .capoChart .capoSelection .chordchart .chord .sharp {
+  position: absolute;
+  top: 7px;
+  font-size: 0.85rem;
+}
+
+.chordcoversion .chordexp .capoChart .capoSelection .chordchart .chord:hover {
+  color: #fff;
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+
+.chordcoversion .chordexp .capoChart .chordtitle {
+  width: 65%;
+}
+
+.chordcoversion .chordexp .capoChart .capospot {
+  width: 35%;
+}
+
+@media only screen and (max-width: 1300px) {
+  .chordcoversion {
+    max-width: 90%;
+  }
+  .chordcoversion .intro p {
+    margin: 40px;
+    font-size: 1.25rem;
+  }
+  .chordcoversion .chordexp {
+    width: 85%;
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .chordcoversion h1 {
+    margin: 100px 0 20px 0;
+  }
+  .chordcoversion .intro {
+    padding: 0;
+    margin: 10px;
+  }
+  .chordcoversion .intro p {
+    margin: 30px;
+    font-size: 1.25rem;
+  }
+  .chordcoversion .chordexp {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .chordcoversion .chordexp .capoChart {
+    max-width: 100%;
+  }
+  .chordcoversion .chordexp .capoChart .charttitle {
+    font-size: 2rem;
+  }
+  .chordcoversion .chordexp .capoChart .capotitle {
+    font-size: 1.25rem;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection {
+    font-size: 1.5rem;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection .fretnumber {
+    width: 35%;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection .chordchart {
+    width: 65%;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection .chordchart .chord .sharp {
+    top: 5px;
+    font-size: 0.75rem;
+  }
+  .chordcoversion .chordexp .capoChart .chordtitle {
+    width: 65%;
+  }
+  .chordcoversion .chordexp .capoChart .capospot {
+    width: 35%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .chordcoversion h1 {
+    font-size: 2rem;
+    margin: 100px 0 20px 0;
+  }
+  .chordcoversion .intro p {
+    margin: 30px;
+    font-size: 1rem;
+  }
+  .chordcoversion .chordexp .capoChart .charttitle {
+    font-size: 1.5rem;
+  }
+  .chordcoversion .chordexp .capoChart .capotitle {
+    font-size: 1rem;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection {
+    font-size: 1.25rem;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection .fretnumber {
+    width: 35%;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection .chordchart {
+    width: 65%;
+  }
+  .chordcoversion .chordexp .capoChart .capoSelection .chordchart .chord .sharp {
+    top: 5px;
+    font-size: 0.65rem;
+  }
+  .chordcoversion .chordexp .capoChart .chordtitle {
+    width: 65%;
+  }
+  .chordcoversion .chordexp .capoChart .capospot {
+    width: 35%;
+  }
+}
+
+.chorddiagram {
+  visibility: visible;
+  margin-bottom: 10rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background-color: #333333;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .logo {
+  color: #fff;
+  font-size: 2.5rem;
+  padding: 1rem;
+}
+
+.header .nav-items {
+  position: relative;
+}
+
+.header .nav-items ul {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 1.25rem;
+  color: red;
+}
+
+.header .nav-items li {
+  list-style: none;
+  padding: 1rem 1.5rem;
+}
+
+.header .nav-items li a {
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.header .nav-items li a:hover {
+  color: #a5c4e7;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0, 0.5rem, 0, 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .header .logo {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+  }
+  .header .togglebutton {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.25rem;
+    margin: 0.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .header .togglebutton .line {
+    width: 100%;
+    height: 6px;
+    background-color: #fff;
+  }
+  .header .togglebutton::active {
+    color: red;
+  }
+  .header .nav-items ul {
+    padding: 1rem;
+    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 1.25rem;
+  }
+  .header .nav-items li {
+    list-style: none;
+    padding: 1rem 1.5rem;
+  }
+  .header .nav-items li a {
+    color: #fff;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  .header .nav-items li a:hover {
+    color: #a5c4e7;
+  }
+}
+
+.showChord {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 350px;
+}
+
+.tuning-dropdown-header {
+  margin: 0 auto;
+  padding-top: 150px;
+}
+
+.tuning-dropdown-header .dd-list-item {
+  color: white;
+}
+
+.selectddown {
+  width: 70%;
+  font-style: inherit;
+}
+
+.dd-header {
+  margin: 10rem 5rem;
+  font-size: 1.6rem;
+  letter-spacing: 1.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dd-header p {
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+
+.selectddown {
+  max-width: 15vw;
+}
+
+.notes {
+  text-align: center;
+  color: #c9c9c9;
+  font-size: 1.8rem;
+  margin: 20px;
+  padding: 20px;
+  width: 50vw;
+  border-top: 2px solid black;
+}
+
+.notes .tuningname {
+  font-size: 2.6rem;
+  padding-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  color: white;
+}
+
+.notes .capoplacement {
+  color: white;
+}
+
+.guitarneck {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 15vw;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  border-left: 5px #e0d9c5 solid;
+  border-right: 5px #e0d9c5 solid;
+  border-bottom: 0px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(22, 22, 22, 0.3)), to(rgba(22, 22, 22, 0.1))), url("https://i0.wp.com/www.farmgirlgourmet.com/wp-content/uploads/2014/05/dark-wood-grain-texture.jpg?fit=811%2C1000&ssl=1");
+  background-image: linear-gradient(to bottom right, rgba(22, 22, 22, 0.3), rgba(22, 22, 22, 0.1)), url("https://i0.wp.com/www.farmgirlgourmet.com/wp-content/uploads/2014/05/dark-wood-grain-texture.jpg?fit=811%2C1000&ssl=1");
+  background-size: cover;
+}
+
+.guitarneck .fret {
+  padding: 5px;
+}
+
+.guitarneck .fret ul {
+  background-color: transparent;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  color: #a3a3a3;
+}
+
+.guitarneck .fret ul li {
+  padding: 1rem 0.7rem;
+  font-size: 2rem;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.guitarneck .fret ul li:hover {
+  color: #dfdfdf;
+}
+
+.guitarneck .fret ul .sharp {
+  position: absolute;
+  font-size: 0.85rem;
+}
+
+.guitarneck .fretwire {
+  width: 100%;
+  height: 5px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c9c9c9), to(#868686));
+  background-image: linear-gradient(to bottom, #c9c9c9, #868686);
+}
+
+.guitarneck .fret0 {
+  z-index: 1;
+  background-image: url("https://www.wallpaperboulevard.com/Images/product/alexa-bone-texture-sjji-l.jpg");
+  background-size: cover;
+  color: black;
+  list-style: none;
+}
+
+.guitarneck .fret0 ul {
+  color: black;
+}
+
+.guitarneck .fret0 ul li {
+  padding: 0 0.7rem;
+  font-size: 1.5rem;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.guitarneck .fret0 ul li:hover {
+  color: #666;
+}
+
+@media only screen and (max-width: 1875px) {
+  .selectddown {
+    max-width: 25vw;
+  }
+  .guitarneck {
+    max-width: 25vw;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .selectddown {
+    max-width: 50vw;
+  }
+  .guitarneck {
+    max-width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .selectddown {
+    max-width: 75vw;
+  }
+  .guitarneck {
+    max-width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .dd-header {
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+  }
+  .selectddown {
+    width: 100%;
+  }
+  .notes {
+    font-size: 1.2rem;
+  }
+  .guitarneck {
+    max-width: 100%;
+  }
+  .guitarneck .fret ul li {
+    padding: 1rem 0.7rem;
+    font-size: 1.25rem;
+  }
+  .guitarneck .fret ul .sharp {
+    position: absolute;
+    font-size: 0.8rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0 auto;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  background-image: -webkit-gradient(linear, right bottom, left top, from(rgba(153, 185, 162, 0.7)), to(rgba(146, 146, 146, 0.7))), url("https://images.unsplash.com/photo-1520462374865-cbc28f0b5150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
+  background-image: linear-gradient(to top left, rgba(153, 185, 162, 0.7), rgba(146, 146, 146, 0.7)), url("https://images.unsplash.com/photo-1520462374865-cbc28f0b5150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+}
+
+body {
+  color: black;
+  font-family: 'Raleway', 'sans-serif';
+  font-size: 62.5%;
+}
+/*# sourceMappingURL=main.css.map */

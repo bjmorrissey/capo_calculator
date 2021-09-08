@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
+  
+  
+
   return (
     <div className="header">
       
         <div className="logo">Capo Calculator</div>
+          <a href="#" className="togglebutton">
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="line"></span>
+          </a>
         <div className="nav-items">
           <ul>
             <li><Link to="/capo_calculator">Calc some chords</Link></li>
