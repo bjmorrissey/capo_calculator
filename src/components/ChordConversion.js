@@ -47,7 +47,8 @@ const ChordConversion = (props) => {
       <div className="intro">
           <p>What is a <a href="https://en.wikipedia.org/wiki/Capo">capo</a>? It's a common tool for guitarists to transpose and shorten the playable length of the strings - hence raising the pitch. Thanks Wikipedia!</p>
           <p>This tool was developed to help guitarists by entering a list of chords they could play at an open position. After conversion, you'll see a list spots you can place a capo and strum the respective chords to gain different voicings. Try it out!</p>
-          <p>Once the chords are displayed, click on a chord to see the chord shape. </p>
+          <p><em><b>Beta testing:</b></em> Once the chords are displayed, click on a chord to see the chord shape. </p>
+          
       </div>
 
       <div className="chordinput">

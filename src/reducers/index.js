@@ -582,11 +582,11 @@ const chordSelectionReducer = (selectedChord=null, action) => {
       const notesRefined = notesRun.map(group => Object.values(group).join(',')).join(',').split(',')
       const checkedChords = capValidator.filter(chord => notesRefined.includes(chord[0]))
       
-      // console.log(checkedChords)
+      console.log(checkedChords)
      
-      const completeChords = checkedChords.filter(chord => chord.length === 1 || chord.slice(1, 2).includes('m') || chord.slice(1, 4).includes('dim') || chord.slice(1, 2).includes('7') || chord.slice(1, 2).includes('#') || chord.slice(1, 2).includes('b') || chord[1].includes('aug'))
+      const completeChords = checkedChords.filter(chord => chord.length === 1 || chord.slice(1, 2).includes('m') || chord.slice(1, 4).includes('dim') || chord.slice(1, 2).includes('7') || chord.slice(1, 2).includes('#') || chord.slice(1, 2).includes('b') || chord[1].includes('aug') ||chord.slice(1, 2).includes('9') || chord.slice(1, 2).includes('5') || chord.slice(1, 2).includes('7') || chord.includes('sus'))
 
-      // console.log(completeChords)
+      console.log(completeChords)
 
       const complete2 = completeChords.map(chord => {
         if (chord.includes('minor')) {
@@ -600,6 +600,12 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         }
         if (chord.includes('augmented')) {
           return chord.replaceAll('augmented','aug')
+        }
+        if (chord.includes('sustained')) {
+          return chord.replaceAll('sustained','sus')
+        }
+        if (chord.includes('sustain')) {
+          return chord.replaceAll('sustain','sus')
         }
         if (chord.length > 2) {
           if (chord[1] === 'm' || chord[1] === 'd' || chord[1] === 'b' || chord[1] === '#') {
@@ -623,6 +629,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
         //check chord for in each key, return keys that specific chord is in
       if (chordLength === 1) 
       {
+        console.log('one chord here')
         songkey = complete2[0]
         keyarr.push(complete2[0])
         keyobj.key = complete2[0]
@@ -646,6 +653,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
             })
           
             for (let i = 0; i < keyarr.length; i++) {
+             
               let key = keyarr[i];
               keyobj[key] = keyobj[key] ? keyobj[key] + 1 : 1;
               }
@@ -654,17 +662,28 @@ const chordSelectionReducer = (selectedChord=null, action) => {
             }
         }
       } 
-          
-      //  console.log(songkey)
-      //  console.log(keyobj)
-      //  console.log(keyarr)
+          console.log(chordLength)
+          console.log(`Songkey before editing: ${songkey}`)
+      
+
+        if (songkey[1] === 'm' || Number(songkey[1]) || songkey[1] === 's') {
+          // console.log(songkey[1])
+          songkey = songkey[0]
+        }
+
+        if (songkey.length > 2) {
+          songkey = songkey.slice(0,2)
+        }
+
+        console.log(songkey)
       
         // Validating if there's a flat or sharp? 
         let notes = [];
         let tense = 'sharp'
       
         for (const [keynote, values] of Object.entries(keysReducer)) {
-          if (values.name === songkey.slice(0,2)) {
+          
+          if (values.name === songkey) {
             // console.log(values.name)
             // console.log(values.tense)
             tense = values.tense
@@ -745,14 +764,14 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           return stringNotes;
         }
 
-        if (songkey[1] === 'm') {
-          console.log(songkey[1])
-          songkey = songkey[0]
-        }
+        // if (songkey[1] === 'm' || Number(songkey[1])) {
+        //   console.log(songkey[1])
+        //   songkey = songkey[0]
+        // }
 
-        if (songkey.length > 2) {
-          songkey = songkey.slice(0,2)
-        }
+        // if (songkey.length > 2) {
+        //   songkey = songkey.slice(0,2)
+        // }
           
         if (sixthStringNotes.indexOf(songkey) < fifthStringNotes.indexOf(songkey)) {
           capoTwoRec = sixthStringNotes.indexOf(songkey)
@@ -800,8 +819,8 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           // console.log(completeChords)
           // console.log(complete2)
           // console.log(notes)
-          console.log(`Songkey: ${songkey}`)
-          console.log(`tense: ${tense}`)
+          // console.log(`Songkey: ${songkey}`)
+          // console.log(`tense: ${tense}`)
         
        
 
@@ -812,7 +831,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
             return newnote
             
           })
-          console.log(newChords)
+          // console.log(newChords)
           return newChords
           }
           
@@ -824,7 +843,7 @@ const chordSelectionReducer = (selectedChord=null, action) => {
           {[capoFourRec]: chordChange(capoFourRec)}
         ]
         
-        console.log(capoObj)
+        // console.log(capoObj)
          capoObj = capoObj.filter(entry => 
            Object.keys(entry) > 0 )
         
